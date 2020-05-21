@@ -76,9 +76,10 @@ namespace SmartSchoolWebApi.Data
 
             query = query.AsNoTracking()
                          .OrderBy(aluno => aluno.Id)
-                         .Where(aluno => aluno.AlunosDisciplinas.Any(ad => ad.DisciplinaId == disciplinaId));
+            .Where(aluno => aluno.AlunosDisciplinas.Any(ad => ad.DisciplinaId == disciplinaId));
 
             return await query.ToArrayAsync();
+
         }
 
         public async Task<Professor[]> GetProfessoresAsyncByAlunoId(int alunoId, bool includeDisciplina)
